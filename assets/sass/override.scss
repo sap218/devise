@@ -17,8 +17,9 @@ $fa-font-path: "../webfonts";
 
 // === Custom Styles ===
 #content {
-  width: 100%;
-  max-width: 650px;
+  width: 80%;
+  /*max-width: 650px;*/
+  max-width: 75%;
   min-height: calc(100vh - 105px);
 }
 
@@ -84,21 +85,30 @@ header {
   }
 }
 
-img {
-	max-width: 100%;
-	height: auto;
-	vertical-align: middle;
-	border-radius: .2rem;
-}
 
 h4 {
   margin-top: 2.2rem;
   margin-bottom: 0.7rem;
 }
 
+
 a {
   text-decoration: underline;
+  color: #000 !important;
 }
+a:hover {
+  background-color: #d8a39d;
+}
+a, a:visited {
+  color: #212529;
+}
+code, pre {
+  font-family: Monaco, monospace;
+  font-size: 0.95em;
+  font-weight: bold;
+  color: black;
+}
+
 
 blockquote {
   background: $body-bg;
@@ -133,3 +143,153 @@ blockquote p {
 
 // 1200px
 @include media-breakpoint-up(xl) {}
+
+
+#TableOfContents {
+    border-left: 3px solid #ccc;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+#TableOfContents ul {
+    list-style: none;
+    padding-left: 0;
+}
+#toc-container {
+    border-left: 3px solid #ccc;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+#toc-toggle {
+    background: none;
+    border: none;
+    color: #007acc;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+
+@media (max-width: 768px) {
+  figure {
+    width: 100%;      /* almost full width */
+    margin: 1.5rem auto;
+  }
+}
+
+figure {
+    width: 60%;
+    max-width: 100%;
+    height: auto;
+
+    margin: 2rem auto;  /* ✅ Centers horizontally */
+    padding: 1rem;
+
+    border: 1px solid #ccc;       /* ✅ Border */
+    border-radius: 0.2rem;
+    background-color: #fafafa;    /* Optional subtle background */
+
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Optional soft shadow */
+}
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+figure figcaption {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+figure.figure-plain {
+    all: unset;
+    display: block;
+    margin: 1rem 0;
+}
+
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  background: none;
+  color: #222;
+  margin: 2rem auto;
+}
+th, td {
+  padding: 0.25rem 0.8rem;
+  border-bottom: 1px solid #ddd;
+  /*text-align: left;*/
+  text-align: center;
+}
+thead th {
+  font-weight: 600;
+  color: #000;
+  border-bottom: 2px solid #aaa;
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+@media (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Allow figures inside tables to expand within their cells */
+table td figure {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: 1px solid #ccc;       /* ✅ Border */
+  border-radius: 0.2rem;
+  background-color: #fafafa;    /* Optional subtle background */
+}
+/* Ensure the image inside the figure scales properly */
+table td figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.small-left-table table {
+  font-size: 0.75rem; /* adjust size as needed */
+  text-align: left;
+}
+.small-left-table th,
+.small-left-table td {
+  text-align: left;
+}
+
+
+.post-date {
+  font-family: monospace;
+}
+
+
+/* Style for fenced code blocks */
+pre code {
+  display: block;
+  background-color: #2e2e2e; /* dark grey */
+  color: #f8f8f2;            /* light text for contrast */
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95em;
+}

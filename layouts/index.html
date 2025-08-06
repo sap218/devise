@@ -7,6 +7,8 @@
     {{ if .Content }}
         <div class="pl-sm-4 ml-sm-5">
             {{ .Content }}
+			
+			{{- partial "category-posts.html" . -}}
         </div>
     {{ else }}
         {{- partial "category-posts.html" . -}}

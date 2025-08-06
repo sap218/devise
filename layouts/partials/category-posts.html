@@ -7,11 +7,12 @@
             {{ end }}
             {{ if gt $recent 0 }}
             <div class="pb-3">
-                <h5><span class="badge category">Recent</span></h5>
+                <h5><span class="badge category">All articles</span></h5>
                 <ul class="list-unstyled">
                     {{ range first $recent (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
                         <li>
-                            {{ .Date.Format "Jan 2 2006" }}
+                            <!--{{ .Date.Format "Jan 2 2006" }}-->
+							<span class="post-date">{{ .Date.Format "2006 Jan 02 " }}</span>
                             <a href="{{ .Permalink }}">{{ .Title }}</a>
                         </li>
                     {{ end }}
@@ -19,6 +20,7 @@
             </div>
             {{ end }}
 
+			<!--
             {{ range $key, $taxonomy := .Site.Taxonomies.categories.Alphabetical }}
                 <div class="pb-3">
                     <h5>
@@ -35,7 +37,7 @@
                         {{ end }}
                     </ul>
                 </div>
-            {{ end }}
+            {{ end }}-->
         </div>
     </div>
 </div>

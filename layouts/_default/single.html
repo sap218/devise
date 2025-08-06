@@ -1,7 +1,39 @@
 {{ define "main" }}
+
+    <div class="pl-sm-4 ml-sm-5">
+	
+        {{ if .Params.toc }}
+            <div>
+                <button id="toc-toggle" aria-expanded="false" aria-controls="TableOfContents">
+                    📑 Show Table of Contents
+                </button>
+                <nav id="TableOfContents" style="display: none;">
+                    {{ .TableOfContents }}
+                </nav>
+            </div>
+        {{ end }}
+
+    </div>
+
     <div class="pl-sm-4 ml-sm-5">
         {{ .Content }}
     </div>
 
     {{ template "_internal/disqus.html" . }}
+	
+    <!-- TOC toggle script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("toc-toggle");
+        const toc = document.getElementById("TableOfContents");
+
+        toggleButton.addEventListener("click", function () {
+            const isVisible = toc.style.display !== "none";
+            toc.style.display = isVisible ? "none" : "block";
+            toggleButton.setAttribute("aria-expanded", !isVisible);
+            toggleButton.textContent = isVisible ? "📑 Show Table of Contents" : "📑 Hide Table of Contents";
+        });
+    });
+    </script>
+
 {{ end }}

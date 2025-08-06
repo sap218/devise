@@ -1,18 +1,28 @@
 {{ define "main" }}
 <div class="pl-sm-4 ml-sm-5">
-    <h4>{{ if eq .Name "Categories" }} Categories {{ else }} Category - {{ .Name }} {{ end }}</h4>
+	<!--<h4>{{ if eq .Name "Categories" }} Categories {{ else }} Category - {{ .Name | upper }} {{ end }}</h4>-->
+	<h4>{{ if eq .Name "Categories" }} {{ else }} category - {{ .Name | upper }} {{ end }}</h4>
+
     {{ $outerName := .Name }}
     <ul class="list-unstyled">
         {{ range .Pages }}
         <li>
             {{ if ne $outerName "Categories" }}
                 <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
-                {{ .Date.Format "Jan 2 2006" }}
+                <span class="post-date">{{ .Date.Format "2006 Jan 02 " }}</span>
                 </time>
-            {{ end }}
-            <a href="{{ .RelPermalink }}">
+				
+				<a href="{{ .RelPermalink }}">
                 {{ .Title }}
+				</a>
+            {{ end }}
+			
+			{{ if eq $outerName "Categories" }}
+            <a href="{{ .RelPermalink }}">
+                {{ .Title | upper }}
             </a>
+			{{ end }}
+						
         </li>
         {{ end }}
     </ul>

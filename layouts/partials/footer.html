@@ -1,3 +1,4 @@
+<br>
 <footer class="text-center pb-1">
     <small class="text-muted">
         {{ if .Site.Copyright }}
@@ -5,8 +6,11 @@
         {{ else }}
             {{ "&copy; Copyright Year, Your Name" | safeHTML }}
         {{ end }}
-        <br>
+		&nbsp
+        <!--
+		<br>
         Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
         and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+		-->
     </small>
 </footer>
