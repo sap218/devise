@@ -31,7 +31,8 @@
             </h2>
             <p class="text-muted mb-1">
                 {{ if isset .Site.Params "header_subtitle" }}
-                    {{ .Site.Params.header_subtitle }}
+                    <!--{{ .Site.Params.header_subtitle }}-->
+					{{ .Site.Params.header_subtitle | safeHTML }}
                 {{ else }}
                     Your Creative Subtitle
                 {{ end }}
